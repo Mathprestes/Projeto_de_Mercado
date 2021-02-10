@@ -6,10 +6,12 @@
 package view;
 
 import modelo.bean.Usuario;
-import modelo.dao.CadastroDAO;
-import java.text.ParseException;
-import javax.swing.JOptionPane;
+import modelo.dao.DAO;
+import modelo.dao.UsuarioDAO;
+
+import javax.swing.*;
 import javax.swing.text.MaskFormatter;
+import java.text.ParseException;
 
 /**
  *
@@ -145,14 +147,14 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Usuario p = new Usuario();
-        CadastroDAO dao = new CadastroDAO();
+        Usuario      p   = new Usuario();
+        DAO<Usuario> dao = new UsuarioDAO();
 
         p.setNome       (txtNome.getText() );
         p.setTelefone   (txtTelefone.getText() );
         p.setEmail      (txtEmail.getText() );
         p.setSenha      (txtSenha.getText() );
-        dao.create(p);
+        dao.adicionar(p);
 
         txtNome.setText     ("");
         txtTelefone.setText ("");
