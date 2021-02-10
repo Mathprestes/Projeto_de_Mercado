@@ -14,6 +14,14 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * <p> Gerencia todas as operacoes no banco de dados que envolvam a tabela de
+ * produtos. </p>
+ *
+ * @author Matheus
+ * @version 1.1.0
+ * @since 1.0.0
+ */
 public class ProdutoDAO implements DAO<Produto> {
 
     @Override
