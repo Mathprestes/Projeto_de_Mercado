@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package view;
 
-import Modelo.bean.Produto;
-import Modelo.dao.ProdutoDAO;
+import modelo.bean.Produto;
+import modelo.dao.ProdutoDAO;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 
-public class Tela_Mercado extends javax.swing.JFrame {
+public class TelaMercado extends javax.swing.JFrame {
 
     
-    public Tela_Mercado() {
+    public TelaMercado() {
         initComponents();
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
         jTProdutos.setRowSorter (new TableRowSorter (modelo) );
@@ -311,7 +311,7 @@ public class Tela_Mercado extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        Tela_do_Usuario y = new Tela_do_Usuario();
+        TelaUsuario y = new TelaUsuario();
         y.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -333,13 +333,13 @@ public class Tela_Mercado extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Mercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Mercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Mercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Mercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -349,7 +349,7 @@ public class Tela_Mercado extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_Mercado().setVisible(true);
+                new TelaMercado().setVisible(true);
             }
         });
     }

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package view;
 
-import Modelo.dao.UsuarioDAO;
+import modelo.dao.UsuarioDAO;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
  *
  * @author Matheus
  */
-public class Tela_Login extends javax.swing.JFrame {
+public class TelaLogin extends javax.swing.JFrame {
 
 
-    public Tela_Login() {
+    public TelaLogin() {
         initComponents();
     }
 
@@ -171,7 +171,7 @@ public class Tela_Login extends javax.swing.JFrame {
         
         if (dao.checkLogin(txtEmail.getText(), txtSenha.getText() )) {
  
-            new Tela_do_Usuario().setVisible(true);
+            new TelaUsuario().setVisible(true);
             this.dispose(); 
         }
         
@@ -189,7 +189,7 @@ public class Tela_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Tela_Cadastro x = new Tela_Cadastro();
+        TelaCadastro x = new TelaCadastro();
         x.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -211,13 +211,13 @@ public class Tela_Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -225,7 +225,7 @@ public class Tela_Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_Login().setVisible(true);
+                new TelaLogin().setVisible(true);
             }
         });
     }

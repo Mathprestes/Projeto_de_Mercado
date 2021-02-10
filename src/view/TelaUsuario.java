@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package view;
 
 /**
  *
  * @author Matheus
  */
-public class Tela_do_Usuario extends javax.swing.JFrame {
+public class TelaUsuario extends javax.swing.JFrame {
 
     //String nome;
-    public Tela_do_Usuario() {
+    public TelaUsuario() {
         initComponents(); 
     }
     
-    //public Tela_do_Usuario(String loginUser) {
+    //public TelaUsuario(String loginUser) {
         //initComponents();
         //this.nome = loginUser;
         //String getValue = jLabel1.getText();
@@ -116,7 +116,7 @@ public class Tela_do_Usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Tela_Mercado().setVisible(true);
+        new TelaMercado().setVisible(true);
         this.dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -149,13 +149,13 @@ public class Tela_do_Usuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_do_Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_do_Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_do_Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_do_Usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -163,7 +163,7 @@ public class Tela_do_Usuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_do_Usuario().setVisible(true);
+                new TelaUsuario().setVisible(true);
             }
         });
     }
