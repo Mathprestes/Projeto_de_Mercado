@@ -11,6 +11,10 @@ import java.util.Optional;
  * as funcionalidades especificas. </p>
  *
  * @param <T> Tipo de dado que a interface ira trabalhar.
+ *
+ * @author Adriano Siqueira
+ * @version 1.0.0
+ * @since 1.0.1
  */
 public interface DAO<T> {
 
