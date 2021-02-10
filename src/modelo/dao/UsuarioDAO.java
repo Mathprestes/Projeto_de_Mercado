@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -18,7 +17,7 @@ import java.util.logging.Logger;
  * usuarios. </p>
  *
  * @author Matheus
- * @version 1.1.0
+ * @version 1.1.1
  * @since 1.0.0
  */
 public class UsuarioDAO implements DAO<Usuario> {
@@ -184,33 +183,36 @@ public class UsuarioDAO implements DAO<Usuario> {
         }
     }
 
+    public boolean checkLogin(String email, String senha) {
+        Optional<Connection> optional = ConexaoFactory.abrirConexao();
 
-    // --- Nao sei o que fazer com isso
-    public boolean checkLogin(String email, String senha) {     //recebendo dois parametros
+        if (!optional.isPresent()) {
+            logger.severe("A conexao nao pode ser aberta.");
+            return false;
+        }
 
-        Connection        con   = ConexaoFactory.getConnection();
-        PreparedStatement stmt  = null;
-        ResultSet         rs    = null;
-        boolean           check = false;
+        String sql = "SELECT * " +
+                     "FROM tb_usuario " +
+                     "WHERE email = ? and senha = ?";
+
+        Connection        connection = optional.get();
+        PreparedStatement statement  = null;
+        ResultSet         resultSet  = null;
+        boolean           check      = false;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM tb_usuario WHERE email = ? and senha = ?");
-            stmt.setString(1, email);
-            stmt.setString(2, senha);
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, email);
+            statement.setString(2, senha);
 
-            rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                check = true;
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            resultSet = statement.executeQuery();
+            check     = resultSet.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
-            ConexaoFactory.closeConnection(con, stmt, rs);
+            ConexaoFactory.fecharConexao(connection, statement, resultSet);
         }
 
         return check;
     }
-    // --- Nao sei o que fazer com isso
 }
