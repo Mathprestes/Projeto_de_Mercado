@@ -104,7 +104,7 @@ public class ProdutoDAO implements DAO<Produto> {
         // Retorna apenas os items que nao foram excluidos
         final String sql = "SELECT * " +
                            "FROM tb_produto " +
-                           "WHERE ativo = true";
+                           "WHERE ativo = ?";
 
         Connection        connection = optional.get();
         PreparedStatement statement  = null;
@@ -112,6 +112,7 @@ public class ProdutoDAO implements DAO<Produto> {
 
         try {
             statement = connection.prepareStatement(sql);
+            statement.setBoolean(1, true);
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
