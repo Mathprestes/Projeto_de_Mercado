@@ -6,6 +6,7 @@
 package view;
 
 import modelo.bean.Produto;
+import modelo.dao.DAO;
 import modelo.dao.ProdutoDAO;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -27,9 +28,9 @@ public class TelaMercado extends javax.swing.JFrame {
         
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
         modelo.setNumRows(0);
-        ProdutoDAO pdao = new ProdutoDAO();
+        DAO<Produto> pdao = new ProdutoDAO();
         
-        for (Produto p: pdao.read() ) {                        //laço de repetiçao para percorrer a lista
+        for (Produto p: pdao.listar() ) {                        //laço de repetiçao para percorrer a lista
             
             modelo.addRow(new Object[]{
                 p.getId(),
@@ -241,7 +242,7 @@ public class TelaMercado extends javax.swing.JFrame {
         if (jTProdutos.getSelectedRow() != -1) {
 
             Produto p = new Produto();
-            ProdutoDAO dao = new ProdutoDAO();
+            DAO<Produto> dao = new ProdutoDAO();
 
             p.setNome       (txtNome.getText() );
             p.setTipo       (txtTipo.getText() );
@@ -249,7 +250,7 @@ public class TelaMercado extends javax.swing.JFrame {
             p.setQuantidade (Integer.parseInt (txtQtd.getText() ));
             p.setPreco      (Double.parseDouble (txtPreco.getText() ));
             p.setId         ((int)jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 0) );
-            dao.update(p);
+            dao.atualizar(p.getId(), p);
 
             txtNome.setText  ("");
             txtTipo.setText  ("");
@@ -266,10 +267,10 @@ public class TelaMercado extends javax.swing.JFrame {
         if (jTProdutos.getSelectedRow() != -1) {
 
             Produto p = new Produto();
-            ProdutoDAO dao = new ProdutoDAO();
+            DAO<Produto> dao = new ProdutoDAO();
 
             p.setId ((int)jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 0) );
-            dao.Delete(p);
+            dao.remover(p.getId());
 
             txtNome.setText  ("");
             txtTipo.setText  ("");
@@ -286,15 +287,15 @@ public class TelaMercado extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        Produto p = new Produto();
-        ProdutoDAO dao = new ProdutoDAO();
+        Produto p   = new Produto();
+        DAO<Produto> dao = new ProdutoDAO();
 
         p.setNome       (txtNome.getText() );
         p.setTipo       (txtTipo.getText() );
         p.setDescricao  (txtDesc.getText() );
         p.setQuantidade (Integer.parseInt (txtQtd.getText() ));        //pegando os valores dos campos a cima
         p.setPreco      (Double.parseDouble (txtPreco.getText() ));
-        dao.create(p);
+        dao.adicionar(p);
 
         txtNome.setText  ("");
         txtTipo.setText  ("");
