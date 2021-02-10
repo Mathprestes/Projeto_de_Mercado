@@ -155,13 +155,14 @@ public class ProdutoDAO implements DAO<Produto> {
 
         String sql = "UPDATE tb_produto " +
                      "SET ativo = false " +
-                     "WHERE id = id";
+                     "WHERE id = ?";
 
         Connection        connection = optional.get();
         PreparedStatement statement  = null;
 
         try {
             statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
